@@ -119,8 +119,10 @@ If you use these tools in your research, please cite:
 
 ## 🌐 Live Demos
 
-- Grafting Calculator: [Will be available after deployment]
-- Property Predictor: [Will be available after deployment]
+- **Grafting Calculator**: [部署中 - Deploy on Railway.app]
+- **Property Predictor**: [部署中 - Deploy on Railway.app]
+
+> 🚀 **部署状态**: 代码已上传至 [GitHub](https://github.com/linkersea/peptide-research-tools)，请按照部署指南在Railway.app上创建两个独立应用
 
 ---
 
