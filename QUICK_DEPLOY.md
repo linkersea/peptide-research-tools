@@ -23,16 +23,26 @@
 点击"Login with GitHub"
 
 ### 3. 部署第一个应用 - 肽接枝计算器
-- New Project → Deploy from GitHub repo
-- 选择 `peptide-research-tools` 仓库
-- 设置Root Directory: `peptide-grafting-calculator`
-- 点击Deploy
+
+**步骤详解：**
+1. 点击 "New Project" → "Deploy from GitHub repo"
+2. 选择 `peptide-research-tools` 仓库
+3. **重要：点击 "Configure" 或 "Settings"**
+4. 在 "Source Repo" 部分找到 "Root Directory" 字段
+5. 输入：`peptide-grafting-calculator`
+6. 保存设置
+7. 点击 "Deploy" 或 "Redeploy"
 
 ### 4. 部署第二个应用 - 肽性质预测器
-- New Project → Deploy from GitHub repo  
-- 选择 `peptide-research-tools` 仓库
-- 设置Root Directory: `peptide-property-predictor`
-- 点击Deploy
+
+**步骤详解：**
+1. 再次点击 "New Project" → "Deploy from GitHub repo"  
+2. 选择 `peptide-research-tools` 仓库
+3. **重要：点击 "Configure" 或 "Settings"**
+4. 在 "Source Repo" 部分找到 "Root Directory" 字段
+5. 输入：`peptide-property-predictor`
+6. 保存设置
+7. 点击 "Deploy" 或 "Redeploy"
 
 ## 预期结果
 
@@ -62,11 +72,33 @@
 
 ## 技术支持
 
+### 常见问题解决
+
+**1. "No start command could be found" 错误：**
+- ✅ 确保设置了正确的Root Directory
+- ✅ 检查对应目录下是否有Procfile文件
+- ✅ 重新部署项目
+
+**2. Root Directory设置位置：**
+- 项目创建后，点击项目名称进入详情页
+- 点击 "Settings" 标签
+- 在 "Source Repo" 部分找到 "Root Directory" 字段
+- 输入相应的目录名并保存
+
+**3. 如果部署失败：**
+- 检查GitHub仓库是否为Public
+- 确认requirements.txt文件存在且正确
+- 检查Procfile配置是否正确
+- 尝试删除项目重新创建
+
+### 部署检查清单
+
 如遇到部署问题，请检查：
-1. GitHub仓库是否为Public
-2. requirements.txt是否正确
-3. Procfile配置是否正确
-4. Railway项目Root Directory设置
+1. ✅ GitHub仓库是否为Public
+2. ✅ Root Directory是否正确设置
+3. ✅ requirements.txt是否存在
+4. ✅ Procfile配置是否正确
+5. ✅ railway.json配置是否已提交
 
 ---
 *部署完成后，请在README.md中更新实际的网站链接* 📝
