@@ -76,20 +76,32 @@
 
 **1. "No start command could be found" 错误：**
 - ✅ 确保设置了正确的Root Directory
-- ✅ 检查对应目录下是否有Procfile文件
-- ✅ 重新部署项目
+- ✅ 检查对应目录下是否有Procfile和railway.json文件
+- ✅ 尝试手动触发重新部署
+- ✅ 如果问题持续，请检查构建日志中的具体错误信息
 
-**2. Root Directory设置位置：**
-- 项目创建后，点击项目名称进入详情页
-- 点击 "Settings" 标签
-- 在 "Source Repo" 部分找到 "Root Directory" 字段
-- 输入相应的目录名并保存
+**解决方案：**
+1. 确认Root Directory设置：`peptide-grafting-calculator` 或 `peptide-property-predictor`
+2. 确保railway.json中有正确的startCommand
+3. 如果仍然失败，可以尝试在Railway设置中手动添加启动命令：`python start.py`
 
-**3. 如果部署失败：**
+**2. Root Directory设置位置（重要！）：**
+- 在Railway项目页面，点击项目名称进入详情页
+- 点击 "Settings" 标签页
+- 滚动到 "Source Repo" 部分
+- 找到 "Root Directory" 字段
+- 输入相应的目录名：
+  - 对于肽接枝计算器：`peptide-grafting-calculator`
+  - 对于肽性质预测器：`peptide-property-predictor`
+- 点击保存
+- 返回 "Deployments" 标签，点击 "Redeploy" 
+
+**3. 如果部署仍然失败：**
 - 检查GitHub仓库是否为Public
 - 确认requirements.txt文件存在且正确
-- 检查Procfile配置是否正确
+- 检查构建日志中的详细错误信息
 - 尝试删除项目重新创建
+- 联系Railway支持或使用其他部署平台
 
 ### 部署检查清单
 
