@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peptide Grafting Time Calculator</title>
+    <style>
+        /* 背景的渐变动效设置 */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            /* 线性渐变 + 动画 */
+            background: linear-gradient(45deg, #f9fafb, #ffffff, #eaf3ff, #f9fafb);
+            background-size: 200% 200%;
+            animation: gradientAnimation 15s ease infinite;
+            font-family: "Microsoft Yahei", sans-serif;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 28px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin: 40px auto;
+            max-width: 1000px;
+        }
+
+        .form-section, .result-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            width: 40%;
+        }
+
+        .form-section {
+            text-align: center;
+        }
+        .form-section h2 {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .result-section {
+            text-align: center;
+        }
+        .result-section h2 {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .form-section label {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            margin-right: 8px;
+            margin-bottom: 10px;
+        }
+        .form-section input[type="text"] {
+            width: 50%;
+            padding: 5px 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-section input[type="submit"] {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: #3399ff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .form-section input[type="submit"]:hover {
+            background: #2288ee;
+        }
+
+        .result-section p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+        .result-section span {
+            display: inline-block;
+            min-width: 60px;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        body {
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Peptide Grafting Time Calculator</h1>
+    <div class="container">
+        <!-- 左侧计算器 -->
+        <div class="form-section">
+            <h2>Input Parameters</h2>
+            <form method="POST" action="/?v=1.0" onsubmit="console.log('Form is submitting...');">
+                <label for="amp">AMP：</label>
+                <input type="text" id="amp" name="amp" required><br>
+                <label for="qk">QK：</label>
+                <input type="text" id="qk" name="qk" required><br>
+                <label for="yigsr">YIGSR：</label>
+                <input type="text" id="yigsr" name="yigsr" required><br>
+                <label for="bmp2">BMP2：</label>
+                <input type="text" id="bmp2" name="bmp2" required><br>
+                <input type="submit" value="Calculate Grafting Time">
+            </form>
+        </div>
+
+        <!-- 右侧结果显示 -->
+        <div class="result-section">            <h2>Calculation Results</h2>
+            <p>AMP T1 = <span id="T1">{{ T1 or '-' }}</span> minutes</p>
+            <p>QK T2 = <span id="T2">{{ T2 or '-' }}</span> minutes</p>
+            <p>YIGSR T3 = <span id="T3">{{ T3 or '-' }}</span> minutes</p>
+            <p>BMP2 T4 = <span id="T4">{{ T4 or '-' }}</span> minutes</p>
+        </div>
+    </div>
+</body>
+</html>

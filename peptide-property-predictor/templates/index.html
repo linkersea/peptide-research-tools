@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Predictor of Peptide Property</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f5f5f5; /* New background color */
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #ffffff; /* 增加容器背景 */
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 8px 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    a {
+      display: inline-block;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Predictor of Peptide Property</h1>
+    <form method="POST">      <div class="form-group">
+        <label for="AMP">AMP Value:</label>
+        <input type="number" step="any" id="AMP" name="AMP" required/>
+      </div>
+      <div class="form-group">
+        <label for="QK">QK Value:</label>
+        <input type="number" step="any" id="QK" name="QK" required/>
+      </div>
+      <div class="form-group">
+        <label for="YIGSR">YIGSR Value:</label>
+        <input type="number" step="any" id="YIGSR" name="YIGSR" required/>
+      </div>
+      <div class="form-group">
+        <label for="BMP2">BMP2 Value:</label>
+        <input type="number" step="any" id="BMP2" name="BMP2" required/>
+      </div>
+      <button type="submit">Predict</button>
+    </form>    {% if pred_ALP is defined %}
+    <div class="result">
+      ALP Prediction: {{ pred_ALP }}<br/>
+      AMP Prediction: {{ pred_AMP }}<br/>
+      LW Prediction: {{ pred_LW }}<br/>
+      CellRate Prediction: {{ pred_cellrate }}
+    </div>
+    {% endif %}
+    <a href="{{ url_for('view_csv') }}" target="_blank">View 12000 Predicted Data Sets</a>
+  </div>
+</body>
+</html>
