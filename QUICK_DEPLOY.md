@@ -74,9 +74,14 @@
 
 ### 常见问题解决
 
-**1. "No start command could be found" 错误：**
+**1. "ModuleNotFoundError: No module named 'distutils'" 错误：**
+- ✅ **已修复**: 更新了依赖版本以兼容Python 3.12
+- ✅ **已添加**: nixpacks.toml和runtime.txt文件强制使用Python 3.11
+- ✅ **新版本依赖**: numpy 1.26.4, pandas 2.2.2, scikit-learn 1.4.2
+
+**2. "No start command could be found" 错误：**
 - ✅ 确保设置了正确的Root Directory
-- ✅ 检查对应目录下是否有Procfile和railway.json文件
+- ✅ 检查对应目录下是否有Procfile、railway.json和start.py文件
 - ✅ 尝试手动触发重新部署
 - ✅ 如果问题持续，请检查构建日志中的具体错误信息
 
