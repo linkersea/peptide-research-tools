@@ -1,15 +1,18 @@
 [variables]
 NIXPACKS_PYTHON_VERSION = "3.12"
 PYTHON_VERSION = "3.12"
+SETUPTOOLS_USE_DISTUTILS = "stdlib"
+PYTHONPATH = "/opt/venv/lib/python3.12/site-packages"
 
 [phases.setup]
-nixPkgs = ["python312", "python312Packages.pip", "python312Packages.setuptools", "gcc"]
+nixPkgs = ["python312", "python312Packages.pip", "python312Packages.setuptools", "python312Packages.wheel", "gcc", "glibc"]
 
 [phases.install]
 cmds = [
     "python3.12 -m venv --copies /opt/venv",
     ". /opt/venv/bin/activate",
-    "pip install --upgrade pip setuptools wheel",
+    "export SETUPTOOLS_USE_DISTUTILS=stdlib",
+    "pip install --upgrade pip setuptools>=70.0.0 wheel>=0.43.0",
     "pip install -r requirements.txt"
 ]
 
