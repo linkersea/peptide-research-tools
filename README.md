@@ -53,6 +53,31 @@ Both applications are ready for deployment on:
 - ✅ **Vercel** (with serverless functions)
 - ✅ **PythonAnywhere**
 
+## 🚀 在线部署状态
+
+### 当前部署状态
+- 🔧 **Railway.app**: 配置完成，Python 3.12兼容性已修复
+- 📋 **部署指南**: 参见 [QUICK_DEPLOY.md](QUICK_DEPLOY.md)
+- 🐛 **问题修复**: 解决了distutils模块兼容性问题
+
+### 一键部署
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/linkersea/peptide-research-tools)
+
+**部署说明：**
+1. 点击上方按钮访问Railway.app
+2. 登录GitHub账号
+3. 为每个应用创建独立的项目
+4. 设置正确的Root Directory路径：
+   - 肽接枝计算器: `peptide-grafting-calculator`
+   - 肽性质预测器: `peptide-property-predictor`
+
+### Python 3.12 兼容性
+✅ 项目已升级支持Python 3.12，包含：
+- distutils兼容性修复
+- 更新的依赖包版本
+- 优化的部署配置
+- 错误处理和日志记录
+
 ## 🔬 Features
 
 ### Peptide Grafting Calculator

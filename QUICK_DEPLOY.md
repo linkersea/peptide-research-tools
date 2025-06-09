@@ -1,8 +1,18 @@
 # 🚀 快速部署指南
 
+## ⚠️ Python 3.12 兼容性说明
+
+**重要更新：** 项目已升级至Python 3.12兼容性，包含以下修复：
+- ✅ 解决了 `distutils` 模块在Python 3.12中的兼容性问题
+- ✅ 添加了 `SETUPTOOLS_USE_DISTUTILS=stdlib` 环境变量
+- ✅ 更新了所有依赖包版本以支持Python 3.12
+- ✅ 创建了兼容性层和错误处理机制
+
 ## 当前状态 ✅
 - ✅ GitHub仓库: https://github.com/linkersea/peptide-research-tools
 - ✅ 两个Flask应用已准备就绪
+- ✅ Python 3.12兼容性修复完成
+- ✅ Railway部署配置优化
 
 ## 一键部署链接
 
@@ -108,14 +118,50 @@
 - 尝试删除项目重新创建
 - 联系Railway支持或使用其他部署平台
 
-### 部署检查清单
+### 故障排除指导
 
-如遇到部署问题，请检查：
-1. ✅ GitHub仓库是否为Public
-2. ✅ Root Directory是否正确设置
-3. ✅ requirements.txt是否存在
-4. ✅ Procfile配置是否正确
-5. ✅ railway.json配置是否已提交
+### 常见问题及解决方案
+
+#### 1. "ModuleNotFoundError: No module named 'distutils'" 错误
+**原因：** Python 3.12移除了distutils模块
+**解决方案：**
+- 项目已包含修复，使用 `SETUPTOOLS_USE_DISTUTILS=stdlib`
+- 如仍有问题，在Railway项目设置中添加环境变量：
+  - `SETUPTOOLS_USE_DISTUTILS` = `stdlib`
+
+#### 2. 构建失败或依赖安装错误
+**解决方案：**
+- 检查Python版本是否为3.12
+- 确保使用最新的setuptools和wheel版本
+- 项目已配置自动安装兼容版本
+
+#### 3. 应用启动失败
+**检查步骤：**
+1. 查看Railway日志面板
+2. 确认环境变量设置正确
+3. 验证Root Directory路径设置
+4. 检查端口配置（默认使用PORT环境变量）
+
+#### 4. 部署超时
+**解决方案：**
+- Railway有时需要更长时间构建Python 3.12环境
+- 等待3-5分钟，或重新触发部署
+- 检查构建日志中的具体错误信息
+
+### 调试技巧
+
+1. **查看详细日志：**
+   - 在Railway项目面板点击 "View Logs"
+   - 查找具体的错误信息
+
+2. **重新部署：**
+   - 点击 "Redeploy" 按钮
+   - 或推送新的代码提交触发自动部署
+
+3. **检查配置文件：**
+   - `nixpacks.toml` - Python版本和依赖配置
+   - `requirements.txt` - Python包版本
+   - `start.py` - 启动脚本和错误处理
 
 ---
 *部署完成后，请在README.md中更新实际的网站链接* 📝
