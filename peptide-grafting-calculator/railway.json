@@ -7,5 +7,9 @@
     "startCommand": "python start.py",
     "healthcheckPath": "/",
     "healthcheckTimeout": 300
+  },
+  "variables": {
+    "NIXPACKS_PYTHON_VERSION": "3.11",
+    "PYTHON_VERSION": "3.11"
   }
 }
