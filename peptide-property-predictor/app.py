@@ -41,6 +41,7 @@ def index():
 @app.route("/view_csv")
 def view_csv():
     df = pd.read_csv("data/4pep_12000.csv")
+    df.index = df.index + 1
     return df.to_html()
 
 if __name__ == "__main__":
